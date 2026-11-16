@@ -46,9 +46,9 @@ Requires Python 3.9 or later.
 ```python
 from odia_transliterate import to_roman
 
-to_roman("ଓଡ଼ିଆ")                   # 'ōṛiā'
-to_roman("ନମସ୍କାର", "Hunterian")     # 'namaskara'
-to_roman("ନମସ୍କାର", "ITRANS")        # 'namaskAra'
+to_roman("ଓଡ଼ିଆ")  # 'ōṛiā'
+to_roman("ନମସ୍କାର", "Hunterian")  # 'namaskara'
+to_roman("ନମସ୍କାର", "ITRANS")  # 'namaskAra'
 ```
 
 ### Roman → Odia
@@ -56,9 +56,9 @@ to_roman("ନମସ୍କାର", "ITRANS")        # 'namaskAra'
 ```python
 from odia_transliterate import from_roman
 
-from_roman("namaskāra")              # 'ନମସ୍କାର'
-from_roman("namaskAra", "ITRANS")    # 'ନମସ୍କାର'
-from_roman("jesan", "Hunterian")     # 'ଜେସନ୍'
+from_roman("namaskāra")  # 'ନମସ୍କାର'
+from_roman("namaskAra", "ITRANS")  # 'ନମସ୍କାର'
+from_roman("jesan", "Hunterian")  # 'ଜେସନ୍'
 ```
 
 ### One function for both directions
@@ -66,8 +66,8 @@ from_roman("jesan", "Hunterian")     # 'ଜେସନ୍'
 ```python
 from odia_transliterate import transliterate
 
-transliterate("ଓଡ଼ିଆ")                               # 'ōṛiā'
-transliterate("namaskAra", "ITRANS", reverse=True)   # 'ନମସ୍କାର'
+transliterate("ଓଡ଼ିଆ")  # 'ōṛiā'
+transliterate("namaskAra", "ITRANS", reverse=True)  # 'ନମସ୍କାର'
 ```
 
 ### Scheme shortcuts
@@ -81,8 +81,8 @@ transliterate("namaskAra", "ITRANS", reverse=True)   # 'ନମସ୍କାର'
 ```python
 from odia_transliterate import to_itrans, from_itrans
 
-to_itrans("ନମସ୍କାର")       # 'namaskAra'
-from_itrans("namaskAra")   # 'ନମସ୍କାର'
+to_itrans("ନମସ୍କାର")  # 'namaskAra'
+from_itrans("namaskAra")  # 'ନମସ୍କାର'
 ```
 
 ### Lossless round-trip
@@ -93,7 +93,7 @@ Anything that could be misread is escaped.
 ```python
 text = "ଜଗନ୍ନାଥ Puri"
 
-roman = to_roman(text, "ITRANS", reversible=True)   # 'jagannAtha _{Puri_}'
+roman = to_roman(text, "ITRANS", reversible=True)  # 'jagannAtha _{Puri_}'
 assert from_roman(roman, "ITRANS") == text
 ```
 
