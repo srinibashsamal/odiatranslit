@@ -6,7 +6,7 @@ Supports three romanisation schemes, works in both directions, and can
 round-trip text without any loss.
 
 ```python
->>> from odia_transliterate import to_roman, from_roman
+>>> from odiatranslit import to_roman, from_roman
 >>> to_roman("ଓଡ଼ିଆ ଭାଷା")
 'ōṛiā bhāṣā'
 >>> from_roman("namaskAra", "ITRANS")
@@ -26,10 +26,10 @@ round-trip text without any loss.
 ## Installation
 
 ```bash
-pip install odia-transliterate
+pip install odiatranslit
 ```
 
-Requires Python 3.9 or later.
+Requires Python 3.10 or later.
 
 ## Schemes
 
@@ -44,30 +44,30 @@ Requires Python 3.9 or later.
 ### Odia → Roman
 
 ```python
-from odia_transliterate import to_roman
+from odiatranslit import to_roman
 
-to_roman("ଓଡ଼ିଆ")  # 'ōṛiā'
-to_roman("ନମସ୍କାର", "Hunterian")  # 'namaskara'
-to_roman("ନମସ୍କାର", "ITRANS")  # 'namaskAra'
+to_roman("ଓଡ଼ିଆ")                   # 'ōṛiā'
+to_roman("ନମସ୍କାର", "Hunterian")     # 'namaskara'
+to_roman("ନମସ୍କାର", "ITRANS")        # 'namaskAra'
 ```
 
 ### Roman → Odia
 
 ```python
-from odia_transliterate import from_roman
+from odiatranslit import from_roman
 
-from_roman("namaskāra")  # 'ନମସ୍କାର'
-from_roman("namaskAra", "ITRANS")  # 'ନମସ୍କାର'
-from_roman("jesan", "Hunterian")  # 'ଜେସନ୍'
+from_roman("namaskāra")              # 'ନମସ୍କାର'
+from_roman("namaskAra", "ITRANS")    # 'ନମସ୍କାର'
+from_roman("jesan", "Hunterian")     # 'ଜେସନ୍'
 ```
 
 ### One function for both directions
 
 ```python
-from odia_transliterate import transliterate
+from odiatranslit import transliterate
 
-transliterate("ଓଡ଼ିଆ")  # 'ōṛiā'
-transliterate("namaskAra", "ITRANS", reverse=True)  # 'ନମସ୍କାର'
+transliterate("ଓଡ଼ିଆ")                               # 'ōṛiā'
+transliterate("namaskAra", "ITRANS", reverse=True)   # 'ନମସ୍କାର'
 ```
 
 ### Scheme shortcuts
@@ -79,10 +79,10 @@ transliterate("namaskAra", "ITRANS", reverse=True)  # 'ନମସ୍କାର'
 | `to_hunterian(text)`                  | `from_hunterian(text)` |
 
 ```python
-from odia_transliterate import to_itrans, from_itrans
+from odiatranslit import to_itrans, from_itrans
 
-to_itrans("ନମସ୍କାର")  # 'namaskAra'
-from_itrans("namaskAra")  # 'ନମସ୍କାର'
+to_itrans("ନମସ୍କାର")       # 'namaskAra'
+from_itrans("namaskAra")   # 'ନମସ୍କାର'
 ```
 
 ### Lossless round-trip
@@ -93,7 +93,7 @@ Anything that could be misread is escaped.
 ```python
 text = "ଜଗନ୍ନାଥ Puri"
 
-roman = to_roman(text, "ITRANS", reversible=True)  # 'jagannAtha _{Puri_}'
+roman = to_roman(text, "ITRANS", reversible=True)   # 'jagannAtha _{Puri_}'
 assert from_roman(roman, "ITRANS") == text
 ```
 
@@ -110,11 +110,11 @@ df["name_roman"] = df["name_odia"].map(to_hunterian)
 ## Command line
 
 ```bash
-odia-transliterate "ଓଡ଼ିଆ"                     # ōṛiā
-odia-transliterate "ନମସ୍କାର" -s Hunterian       # namaskara
-odia-transliterate -r "namaskAra" -s ITRANS    # ନମସ୍କାର
-odia-transliterate -i input.txt -o output.txt
-echo "ଜଗନ୍ନାଥ" | odia-transliterate
+odiatranslit "ଓଡ଼ିଆ"                     # ōṛiā
+odiatranslit "ନମସ୍କାର" -s Hunterian       # namaskara
+odiatranslit -r "namaskAra" -s ITRANS    # ନମସ୍କାର
+odiatranslit -i input.txt -o output.txt
+echo "ଜଗନ୍ନାଥ" | odiatranslit
 ```
 
 | Option            | Description                                           |
@@ -148,8 +148,8 @@ mypy
 ## Project layout
 
 ```
-odia-transliterate/
-├── odia_transliterate/
+odiatranslit/
+├── odiatranslit/
 │   ├── __init__.py        # public exports
 │   ├── api.py             # public functions
 │   ├── _engine.py         # internal encoder / decoder
@@ -171,7 +171,7 @@ The letter tables and transliteration engine are adapted from
 ## Contributing
 
 Bug reports and suggestions are welcome. Please
-[open an issue](https://github.com/srinibashsamal/odia-transliterate/issues)
+[open an issue](https://github.com/srinibashsamal/odiatranslit/issues)
 with the input text, the scheme used, and the output you expected.
 
 ## License
