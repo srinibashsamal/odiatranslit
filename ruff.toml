@@ -19,21 +19,18 @@ select = [
 ]
 ignore = [
     "E501",  # line length (handled by formatter)
-    "B008",  # function calls in argument defaults
     "W191",  # tab indentation (conflicts with formatter)
-    "E111",  # indentation not multiple of four
+    "E111",  # indentation not multiple of four (conflicts with formatter)
     "E114",  # conflicts with formatter
     "E117",  # conflicts with formatter
 ]
 fixable = ["ALL"]
 
-# [lint.per-file-ignores]
-# "tests/*" = ["S101"]      # allow assert in tests
-# "__init__.py" = ["F401"]  # allow unused imports in __init__
-# "migrations/*" = ["E501"]
+[lint.per-file-ignores]
+"tests/*" = ["S101"]  # allow assert in tests
 
 [lint.isort]
-known-first-party = ["app_constants"]
+known-first-party = ["odiatranslit"]
 
 [format]
 quote-style = "double"
