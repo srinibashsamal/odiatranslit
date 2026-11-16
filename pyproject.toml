@@ -51,16 +51,6 @@ odiatranslit = ["py.typed"]
 testpaths = ["tests", "odiatranslit"]
 addopts = "--doctest-modules"
 
-[tool.ruff]
-line-length = 88
-target-version = "py39"
-
-[tool.ruff.lint]
-select = ["E", "F", "W", "I", "UP", "B"]
-# E501: long doctest output lines are fine; the formatter handles code.
-# UP0xx: keep typing.List / Optional etc. while 3.9 is supported.
-ignore = ["E501", "UP006", "UP007", "UP035", "UP045"]
-
 [tool.mypy]
 python_version = "3.10"
 strict = true
